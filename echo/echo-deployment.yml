@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-deployment
+  namespace: echo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: echo
+  template:
+    metadata:
+      labels:
+        component: echo
+    spec:
+      containers:
+        - name: go-echo
+          image: benjaminslabbert/go-echo
+          ports:
+            - containerPort: 80

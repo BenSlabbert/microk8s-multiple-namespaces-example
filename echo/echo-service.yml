@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-service
+  namespace: echo
+spec:
+  clusterIP: None
+  selector:
+    component: echo
+  ports:
+    - name: echo
+      port: 8080
+      targetPort: 8080
